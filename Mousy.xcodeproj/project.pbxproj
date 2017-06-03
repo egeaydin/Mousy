@@ -13,6 +13,7 @@
 		39A64B7D1EE368CF00A70FCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39A64B7C1EE368CF00A70FCB /* Assets.xcassets */; };
 		39A64B801EE368CF00A70FCB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39A64B7E1EE368CF00A70FCB /* LaunchScreen.storyboard */; };
 		39A64B8B1EE368CF00A70FCB /* MousyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A64B8A1EE368CF00A70FCB /* MousyUITests.swift */; };
+		C9039B5033E8FF830C67296C /* Pods_Mousy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABB83C8B6ADB3467648AE6D /* Pods_Mousy.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,9 @@
 		39A64B861EE368CF00A70FCB /* MousyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MousyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		39A64B8A1EE368CF00A70FCB /* MousyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MousyUITests.swift; sourceTree = "<group>"; };
 		39A64B8C1EE368CF00A70FCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3DA96CED44D1EC669659CF9A /* Pods-Mousy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mousy.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mousy/Pods-Mousy.release.xcconfig"; sourceTree = "<group>"; };
+		CABB83C8B6ADB3467648AE6D /* Pods_Mousy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mousy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E08598555A36E25F66447648 /* Pods-Mousy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mousy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mousy/Pods-Mousy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9039B5033E8FF830C67296C /* Pods_Mousy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +67,8 @@
 				39A64B741EE368CF00A70FCB /* Mousy */,
 				39A64B891EE368CF00A70FCB /* MousyUITests */,
 				39A64B731EE368CF00A70FCB /* Products */,
+				A62688E8A11C84FD15D46FA3 /* Pods */,
+				FD0F3EE976328E1364FF459E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,6 +103,23 @@
 			path = MousyUITests;
 			sourceTree = "<group>";
 		};
+		A62688E8A11C84FD15D46FA3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E08598555A36E25F66447648 /* Pods-Mousy.debug.xcconfig */,
+				3DA96CED44D1EC669659CF9A /* Pods-Mousy.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FD0F3EE976328E1364FF459E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CABB83C8B6ADB3467648AE6D /* Pods_Mousy.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -103,9 +127,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 39A64B8F1EE368CF00A70FCB /* Build configuration list for PBXNativeTarget "Mousy" */;
 			buildPhases = (
+				3D99FEA67C7BFA2F4D49EE68 /* [CP] Check Pods Manifest.lock */,
 				39A64B6E1EE368CF00A70FCB /* Sources */,
 				39A64B6F1EE368CF00A70FCB /* Frameworks */,
 				39A64B701EE368CF00A70FCB /* Resources */,
+				E30D7F1898D1370D46FBA6C4 /* [CP] Embed Pods Frameworks */,
+				30DEBCD0090BAD1D9499513E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -146,7 +173,7 @@
 				TargetAttributes = {
 					39A64B711EE368CF00A70FCB = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = T9KX56T35Q;
+						DevelopmentTeam = MD353U6L7M;
 						ProvisioningStyle = Automatic;
 					};
 					39A64B851EE368CF00A70FCB = {
@@ -195,6 +222,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		30DEBCD0090BAD1D9499513E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Mousy/Pods-Mousy-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3D99FEA67C7BFA2F4D49EE68 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E30D7F1898D1370D46FBA6C4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Mousy/Pods-Mousy-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		39A64B6E1EE368CF00A70FCB /* Sources */ = {
@@ -339,9 +414,10 @@
 		};
 		39A64B901EE368CF00A70FCB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E08598555A36E25F66447648 /* Pods-Mousy.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = T9KX56T35Q;
+				DEVELOPMENT_TEAM = MD353U6L7M;
 				INFOPLIST_FILE = Mousy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.ucsc..Mousy;
@@ -352,9 +428,10 @@
 		};
 		39A64B911EE368CF00A70FCB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3DA96CED44D1EC669659CF9A /* Pods-Mousy.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = T9KX56T35Q;
+				DEVELOPMENT_TEAM = MD353U6L7M;
 				INFOPLIST_FILE = Mousy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.ucsc..Mousy;
@@ -410,6 +487,7 @@
 				39A64B911EE368CF00A70FCB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		39A64B921EE368CF00A70FCB /* Build configuration list for PBXNativeTarget "MousyUITests" */ = {
 			isa = XCConfigurationList;
@@ -418,6 +496,7 @@
 				39A64B941EE368CF00A70FCB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
