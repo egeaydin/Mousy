@@ -14,21 +14,37 @@ More info on accelerometer's can be found [here](https://en.wikipedia.org/wiki/A
 *None of the challenge are fully solved at the moment.*
 
 ## How to run?
-After downloading the source code; please open the project from **"MousY.xcworkspce"** not**"MousY.xcodepoj"**. Plug your Iphone or Ipad.  
-- You will see a white screen since nothing is working
+After downloading the source code; please open the project from MousY.xcworkspce not MousY.xcodepoj" . Plug your Iphone or Ipad.  
+Version 0.0.1:
+
+* You will see two charts
+
+Version 0.0.0:
+
+* ~~You will see a white screen since nothing is working~~
 
 ## What is working?
-*Nothing at the moment*
+Displaying acceleration X
 
 ## Current Task
-Display the X acceleration and so called filtered data on two separate graphs
+* Try to get position changes of X axis
 
-##Finished Tasks
-*None*
+## Finished Tasks  
+Version 0.0.1:  
 
-## Known problems
--Cannot seem to be able properly display realtime data on the screen. 
--Bunch of annoying cocoapods warnings 
+* Read the accelerometer data  
+* Create a type for data sample which will collect the samples and do the operations on it    
+* Display the X acceleration and so called filtered data on two separate graphs  
+
+## Known problems  
+Version 0.0.1:
+
+* After sometime the X acceleration chart seems to be getting weird, at same time filter graph freezes. Not sure it is because of Charts or DataSample.
+
+Version 0.0.0 
+
+* ~~Cannot seem to be able properly display realtime data on the screen. ~~  
+* ~~Bunch of annoying cocoapods warnings ~~
 
 ## Eager to help?
 Read the challenges again. :smiley: Even small tips and suggestions are appreciated.
