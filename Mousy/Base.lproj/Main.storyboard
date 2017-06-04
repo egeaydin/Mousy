@@ -22,15 +22,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cgp-vS-nha" customClass="SignalChart" customModule="Mousy" customModuleProvider="target">
-                                <rect key="frame" x="9" y="28" width="295" height="167"/>
+                                <rect key="frame" x="16" y="28" width="295" height="116"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="signalName" value="Acceleration X"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v6s-Ip-4UA" customClass="SignalChart" customModule="Mousy" customModuleProvider="target">
+                                <rect key="frame" x="16" y="280" width="295" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="signalName" value="Velocity X"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KAO-Nz-cyK" customClass="SignalChart" customModule="Mousy" customModuleProvider="target">
+                                <rect key="frame" x="27" y="420" width="284" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="signalName" value="Position X"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Luf-N0-hLM" customClass="SignalChart" customModule="Mousy" customModuleProvider="target">
-                                <rect key="frame" x="9" y="220" width="295" height="186"/>
+                                <rect key="frame" x="16" y="152" width="295" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
@@ -42,7 +58,9 @@
                     </view>
                     <connections>
                         <outlet property="chartFilteredX" destination="Luf-N0-hLM" id="sUt-o2-1af"/>
+                        <outlet property="chartPositionX" destination="KAO-Nz-cyK" id="RNj-0v-shR"/>
                         <outlet property="chartRawAcX" destination="Cgp-vS-nha" id="imY-Xd-WQQ"/>
+                        <outlet property="chartVelocityX" destination="v6s-Ip-4UA" id="CWx-ps-hfD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

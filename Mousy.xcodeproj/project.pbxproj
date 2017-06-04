@@ -17,6 +17,7 @@
 		39CCB6FB1EE3719D004BCE49 /* DataSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CCB6F41EE3719D004BCE49 /* DataSample.swift */; };
 		39CCB6FC1EE3719D004BCE49 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CCB6F51EE3719D004BCE49 /* Constants.swift */; };
 		39CCB6FD1EE3719D004BCE49 /* Mousy.xcworkspace in Resources */ = {isa = PBXBuildFile; fileRef = 39CCB6F61EE3719D004BCE49 /* Mousy.xcworkspace */; };
+		39CCB6FF1EE3A700004BCE49 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CCB6FE1EE3A700004BCE49 /* Extensions.swift */; };
 		C9039B5033E8FF830C67296C /* Pods_Mousy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABB83C8B6ADB3467648AE6D /* Pods_Mousy.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +47,7 @@
 		39CCB6F41EE3719D004BCE49 /* DataSample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataSample.swift; path = ../DataSample.swift; sourceTree = "<group>"; };
 		39CCB6F51EE3719D004BCE49 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = ../Constants.swift; sourceTree = "<group>"; };
 		39CCB6F61EE3719D004BCE49 /* Mousy.xcworkspace */ = {isa = PBXFileReference; lastKnownFileType = wrapper.workspace; path = Mousy.xcworkspace; sourceTree = "<group>"; };
+		39CCB6FE1EE3A700004BCE49 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		3DA96CED44D1EC669659CF9A /* Pods-Mousy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mousy.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mousy/Pods-Mousy.release.xcconfig"; sourceTree = "<group>"; };
 		CABB83C8B6ADB3467648AE6D /* Pods_Mousy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mousy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E08598555A36E25F66447648 /* Pods-Mousy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mousy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mousy/Pods-Mousy.debug.xcconfig"; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				39A64B7C1EE368CF00A70FCB /* Assets.xcassets */,
 				39A64B7E1EE368CF00A70FCB /* LaunchScreen.storyboard */,
 				39A64B811EE368CF00A70FCB /* Info.plist */,
+				39CCB6FE1EE3A700004BCE49 /* Extensions.swift */,
 			);
 			path = Mousy;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				39CCB6F81EE3719D004BCE49 /* SignalChart.swift in Sources */,
+				39CCB6FF1EE3A700004BCE49 /* Extensions.swift in Sources */,
 				39CCB6FB1EE3719D004BCE49 /* DataSample.swift in Sources */,
 				39A64B781EE368CF00A70FCB /* ViewController.swift in Sources */,
 				39A64B761EE368CF00A70FCB /* AppDelegate.swift in Sources */,

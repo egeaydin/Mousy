@@ -17,6 +17,8 @@ class ViewController: UIViewController
     
     @IBOutlet weak var chartRawAcX: SignalChart!
     @IBOutlet weak var chartFilteredX: SignalChart!
+    @IBOutlet weak var chartVelocityX: SignalChart!
+    @IBOutlet weak var chartPositionX: SignalChart!
     
     
     required init?(coder aDecoder: NSCoder) {
@@ -36,17 +38,15 @@ class ViewController: UIViewController
                 [weak self] (data: CMAccelerometerData?, error: Error?) in
                 if let acceleration = data?.acceleration
                 {
-                    if let currentSeconds = self?.getCurrentSeconds()
+                    if let sample = self?.sample
                     {
-                        if let sample = self?.sample
-                        {
-                            sample.add(value: acceleration.x, time:currentSeconds)
-                            
-                            self?.chartRawAcX.update(data: sample.data)
-                            self?.chartFilteredX.update(data: sample.filteredData)
-                            
-                            //var linearAcceleration = sqrt(pow(x_acceleration, 2) + pow(y_acceleration, 2) + pow(z_acceleration, 2));
-                        }
+                        sample.add(value: acceleration.x)
+                        self?.chartRawAcX.update(data: sample.data)
+                        self?.chartFilteredX.update(data: sample.filteredData)
+                        self?.chartVelocityX.update(data: sample.velocityData)
+                        self?.chartPositionX.update(data: sample.positionData)
+                        
+                        //var linearAcceleration = sqrt(pow(x_acceleration, 2) + pow(y_acceleration, 2) + pow(z_acceleration, 2));
                     }
                 }
             }
