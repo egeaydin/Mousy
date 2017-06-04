@@ -40,6 +40,7 @@ Version 0.0.1:
 Version 0.0.1:
 
 * After sometime the X acceleration chart seems to be getting weird, at same time filter graph freezes. Not sure it is because of Charts or DataSample.
+* When giving constraints the charts view don't appear.
 
 Version 0.0.0 
 
