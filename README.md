@@ -1,4 +1,4 @@
-# Mousy
+# MousY
 *Turn your phone to a magic wand*
 
 ## Brief Summary
