@@ -37,7 +37,7 @@ Version 0.0.1:
 
 Version 0.0.2:
 
-* The filtering system be inaccurate thus causing miscalculations on both velocity following position.
+* The filtering system is inaccurate thus causing miscalculations on velocity following position.
 
 Version 0.0.1:
 
