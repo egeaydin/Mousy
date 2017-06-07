@@ -10,6 +10,6 @@ import Foundation
 
 struct Constants
 {
-    static let sampleSize = 100
+    static let sampleSize = 1000
 
 }

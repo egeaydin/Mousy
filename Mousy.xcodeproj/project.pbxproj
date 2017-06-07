@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3972D8C71EE797B60077C396 /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3972D8C11EE797B60077C396 /* DoubleExtension.swift */; };
+		3972D8C81EE797B60077C396 /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3972D8C11EE797B60077C396 /* DoubleExtension.swift */; };
+		3972D8CB1EE797B60077C396 /* KalmanFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3972D8C41EE797B60077C396 /* KalmanFilter.swift */; };
+		3972D8CC1EE797B60077C396 /* KalmanFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3972D8C41EE797B60077C396 /* KalmanFilter.swift */; };
+		3972D8CD1EE797B60077C396 /* KalmanFilterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3972D8C51EE797B60077C396 /* KalmanFilterType.swift */; };
+		3972D8CE1EE797B60077C396 /* KalmanFilterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3972D8C51EE797B60077C396 /* KalmanFilterType.swift */; };
+		3972D8CF1EE797B60077C396 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3972D8C61EE797B60077C396 /* Matrix.swift */; };
+		3972D8D01EE797B60077C396 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3972D8C61EE797B60077C396 /* Matrix.swift */; };
 		39A64B761EE368CF00A70FCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A64B751EE368CF00A70FCB /* AppDelegate.swift */; };
 		39A64B781EE368CF00A70FCB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A64B771EE368CF00A70FCB /* ViewController.swift */; };
 		39A64B7B1EE368CF00A70FCB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39A64B791EE368CF00A70FCB /* Main.storyboard */; };
@@ -32,6 +40,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3972D8C11EE797B60077C396 /* DoubleExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
+		3972D8C31EE797B60077C396 /* KalmanFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KalmanFilter.h; sourceTree = "<group>"; };
+		3972D8C41EE797B60077C396 /* KalmanFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KalmanFilter.swift; sourceTree = "<group>"; };
+		3972D8C51EE797B60077C396 /* KalmanFilterType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KalmanFilterType.swift; sourceTree = "<group>"; };
+		3972D8C61EE797B60077C396 /* Matrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
 		39A64B721EE368CF00A70FCB /* Mousy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mousy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39A64B751EE368CF00A70FCB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		39A64B771EE368CF00A70FCB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -72,6 +85,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3972D8C01EE797B60077C396 /* KalmanFilter */ = {
+			isa = PBXGroup;
+			children = (
+				3972D8C11EE797B60077C396 /* DoubleExtension.swift */,
+				3972D8C31EE797B60077C396 /* KalmanFilter.h */,
+				3972D8C41EE797B60077C396 /* KalmanFilter.swift */,
+				3972D8C51EE797B60077C396 /* KalmanFilterType.swift */,
+				3972D8C61EE797B60077C396 /* Matrix.swift */,
+			);
+			name = KalmanFilter;
+			path = MousyUITests/KalmanFilter;
+			sourceTree = SOURCE_ROOT;
+		};
 		39A64B691EE368CF00A70FCB = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +123,7 @@
 		39A64B741EE368CF00A70FCB /* Mousy */ = {
 			isa = PBXGroup;
 			children = (
+				3972D8C01EE797B60077C396 /* KalmanFilter */,
 				39CCB6F51EE3719D004BCE49 /* Constants.swift */,
 				39CCB6F41EE3719D004BCE49 /* DataSample.swift */,
 				39CCB6F11EE3719D004BCE49 /* SignalChart.swift */,
@@ -300,7 +327,11 @@
 				39CCB6FB1EE3719D004BCE49 /* DataSample.swift in Sources */,
 				39A64B781EE368CF00A70FCB /* ViewController.swift in Sources */,
 				39A64B761EE368CF00A70FCB /* AppDelegate.swift in Sources */,
+				3972D8CD1EE797B60077C396 /* KalmanFilterType.swift in Sources */,
+				3972D8CF1EE797B60077C396 /* Matrix.swift in Sources */,
+				3972D8C71EE797B60077C396 /* DoubleExtension.swift in Sources */,
 				39CCB6FC1EE3719D004BCE49 /* Constants.swift in Sources */,
+				3972D8CB1EE797B60077C396 /* KalmanFilter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,6 +339,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3972D8CC1EE797B60077C396 /* KalmanFilter.swift in Sources */,
+				3972D8D01EE797B60077C396 /* Matrix.swift in Sources */,
+				3972D8CE1EE797B60077C396 /* KalmanFilterType.swift in Sources */,
+				3972D8C81EE797B60077C396 /* DoubleExtension.swift in Sources */,
 				39A64B8B1EE368CF00A70FCB /* MousyUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

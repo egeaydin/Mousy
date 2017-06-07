@@ -21,7 +21,9 @@ class DataSample
     private(set) var velocityData: [ChartDataEntry]
     private(set) var positionData: [ChartDataEntry]
     
-    let mechanicalFilterLimit: Double = 0.014
+    private(set) var kalmanFilter: KalmanFilter<Double>
+    
+    let mechanicalFilterLimit: Double = 0.0135
     
     // MARK: -
     
@@ -33,6 +35,8 @@ class DataSample
         filteredData = []
         velocityData = []
         positionData = []
+        
+        kalmanFilter = KalmanFilter(stateEstimatePrior: 0.0, errorCovariancePrior: 1)
         
         //We need to add the first two elements of velocityData and positionData, the initial value is zero
         let time = getCurrentSeconds()
@@ -55,13 +59,16 @@ class DataSample
             //Sample is full, remove first elements
             data.removeFirst()
             filteredData.removeFirst()
+            velocityData.removeFirst()
+            positionData.removeFirst()
         }
         
         //We read the time here in order to make sure that all data arrays have the same time
         let time = getCurrentSeconds()
         
         data.append(ChartDataEntry(x:time, y:value))
-        filteredData.append(ChartDataEntry(x:time, y:filter()))
+        print(max)
+        filteredData.append(ChartDataEntry(x:time, y:filter(value:value)))
         calculatePosition(time:time)
         setMax(number: value)
     }
@@ -70,21 +77,37 @@ class DataSample
      Filter
      
      Low pass filtering of the signal is a very good way to remove noise (both mechanical and electrical) from the accelerometer. Reducing the noise is critical for a positioning application in order to reduce major errors when integrating the signal. A simple way for low pass filtering a sampled signal is to perform a rolling average. Filtering is simply then reduced to obtain the average of a set of samples. It is important to obtain the average of a balanced amount of samples. Taking too many samples to do this process can result in a loss of data, yet taking too few can result in an inaccurate value.
-     
+     TODO: Try to use a queue structure instead of an array to make complexity O(1)
      - Complexity: O(n)
      */
+    @available(*, deprecated, message: "There is a better way to do this, which is kamlan filter. Use this function with a paramater")
     private func filter() -> Double
     {
-        // We are taking moving avarage here
-        var filteredData: Double = 0
+        var sum: Double = 0
         for d in data
         {
-            filteredData += d.y
+            // We are taking moving avarage here
+            sum += d.y
         }
+        let avar = sum / Double(data.count)
         
         //The resulting average represents the acceleration of an instant.
-        return validateData(filteredData / Double(data.count))
+        return validateData(avar)
     }
+    
+    /**
+        This function tries to cancels noise using Kalman Filter, for [more info](https://en.wikipedia.org/wiki/Kalman_filter) As new data comes, the kalman filter gets updated. This method uses [this](https://github.com/wearereasonablepeople/KalmanFilter) library for the kalman filter.
+        - Parameters:
+            - value: The number being tested against the current maximum value    
+     */
+    private func filter(value:Double) -> Double
+    {
+        let prediction = kalmanFilter.predict(stateTransitionModel: 1, controlInputModel: 0, controlVector: 0, covarianceOfProcessNoise: 0)
+        
+        kalmanFilter = prediction.update(measurement: value, observationModel: 1, covarienceOfObservationNoise: 0.1)
+        return prediction.stateEstimatePrior
+    }
+    
     
     /**
      Mechanical Filtering Window:
@@ -125,15 +148,23 @@ class DataSample
         // To make sure that we have at least two data
         if filteredData.count > 1
         {
-            // Taking first integration in order to calculate velocity
-            let velocity = velocityData.beforeLast().y + (filteredData.last?.y)! + ((filteredData.last?.y)! - filteredData.beforeLast().y)
+            if didMovementEnd()
+            {
+                velocityData.append(ChartDataEntry(x: time, y:0))
+                positionData.append(ChartDataEntry(x: time, y:0))
+            }
+            else
+            {
+                // Taking first integration in order to calculate velocity
+                let velocity = velocityData.beforeLast().y + (filteredData.last?.y)! + ((filteredData.last?.y)! - filteredData.beforeLast().y)
+                
+                velocityData.append(ChartDataEntry(x: time, y:velocity))
+                
+                // Taking second integration in order to calculate position
+                let position = positionData.beforeLast().y + (velocityData.last?.y)! + ((velocityData.last?.y)! - velocityData.beforeLast().y)
+                positionData.append(ChartDataEntry(x: time, y: position))
+            }
             
-            velocityData.append(ChartDataEntry(x: time, y:velocity))
-            
-            // Taking second integration in order to calculate position
-            let position = positionData.beforeLast().y + (velocityData.last?.y)! + ((velocityData.last?.y)! - velocityData.beforeLast().y)
-            
-            positionData.append(ChartDataEntry(x: time, y: position))
         }
     }
     

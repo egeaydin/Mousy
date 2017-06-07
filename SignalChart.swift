@@ -33,6 +33,7 @@ class SignalChart : LineChartView, ChartViewDelegate
         dataset.mode = .cubicBezier
         
         chartData.addDataSet(dataset)
+        self.clear()
         self.data = chartData
         
         self.notifyDataSetChanged()
