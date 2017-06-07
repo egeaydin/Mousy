@@ -8,9 +8,9 @@ More info on accelerometer's can be found [here](https://en.wikipedia.org/wiki/A
 
 ## Challenges
 1. **Display**: IOS.Charts giving me hard time. It is hard to show realtime data on IOS.
-2. **Noise Cancelation:** The data is noisy and needs filtering. Currently using **~~"moving average"~~** "kalman filter" technique.
+2. **Noise Cancelation:** The data is noisy and needs filtering. Currently using ~~"moving average"~~ **"kalman filter"** technique.
 3. **Zero Movement:** Even the IPhone stays still, the accelerometer still reads small accelerations. 
-4. **Integration to position:** No idea how to take integral :sweat_smile:  
+4. **Integration to position:** ~~No idea how to take integral :sweat_smile: ~~ Integration algorithm from the pdf seems to be doing the job.  
 *None of the challenge are fully solved at the moment.*
 
 ## How to run?
@@ -21,10 +21,11 @@ Version 0.0.0: ~~You will see a white screen since nothing is working~~
 
 ## Current Task
 * Try to get position changes of X axis
+Version 0.0.4: Introduced new type which is MinMax. Now logging max and min for four different values. 
 
 ## Change log: 
 Version 0.0.3:
-* Using kalman filter instead of moving avarage, which seems to be much better  
+* Using kalman filter instead of moving average, which seems to be much better  
 
 ## Change log: 
 Version 0.0.2:  
@@ -39,9 +40,13 @@ Version 0.0.1:
 
 ## Known problems  
 
+Version 0.0.3:
+
+* No movement condition and movement stop condition is not accurate thus breaking the following calculations. 
+
 Version 0.0.2:
 
-* The filtering system is inaccurate thus causing miscalculations on velocity following position.
+* ~~The filtering system is inaccurate thus causing miscalculations on velocity following position.~~
 
 Version 0.0.1:
 
