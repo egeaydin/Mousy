@@ -15,19 +15,24 @@ More info on accelerometer's can be found [here](https://en.wikipedia.org/wiki/A
 
 ## How to run?
 After downloading the source code; please open the project from `MousY.xcworkspce` not `MousY.xcodepoj`. Plug your Iphone or Ipad and press run. Hopefully some magic will happen. :relieved:  
-Version 0.0.3: You will see four charts. Only the first chart is accurate for sure since it is pure acceleration in X-axis.  
+Version 0.0.4: Filter should be reliable as well  
+Version 0.0.3: ~~You will see four charts. Only the first chart is accurate for sure since it is pure acceleration in X-axis.~~  
 Version 0.0.1: ~~You will see two charts~~  
-Version 0.0.0: ~~You will see a white screen since nothing is working~~
+Version 0.0.0: ~~You will see a white screen since nothing is working~~  
 
 ## Current Task
 * Try to get position changes of X axis
-Version 0.0.4: Introduced new type which is MinMax. Now logging max and min for four different values. 
 
 ## Change log: 
+
+Version 0.0.4: 
+
+* Introduced new type which is MinMax. Now logging max and min for four different values. 
+
 Version 0.0.3:
+
 * Using kalman filter instead of moving average, which seems to be much better  
 
-## Change log: 
 Version 0.0.2:  
 
 * Added position calculation and some helper functions. Position calculation is wrong. 
