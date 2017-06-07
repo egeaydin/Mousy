@@ -8,19 +8,23 @@ More info on accelerometer's can be found [here](https://en.wikipedia.org/wiki/A
 
 ## Challenges
 1. **Display**: IOS.Charts giving me hard time. It is hard to show realtime data on IOS.
-2. **Noise Cancelation:** The data is noisy and needs filtering. Currently trying **"moving average"** technique.
+2. **Noise Cancelation:** The data is noisy and needs filtering. Currently using **~~"moving average"~~** "kalman filter" technique.
 3. **Zero Movement:** Even the IPhone stays still, the accelerometer still reads small accelerations. 
 4. **Integration to position:** No idea how to take integral :sweat_smile:  
 *None of the challenge are fully solved at the moment.*
 
 ## How to run?
 After downloading the source code; please open the project from `MousY.xcworkspce` not `MousY.xcodepoj`. Plug your Iphone or Ipad and press run. Hopefully some magic will happen. :relieved:  
-Version 0.0.2: You will see four charts. Only the first chart is accurate for sure since it is pure acceleration in X-axis.  
+Version 0.0.3: You will see four charts. Only the first chart is accurate for sure since it is pure acceleration in X-axis.  
 Version 0.0.1: ~~You will see two charts~~  
 Version 0.0.0: ~~You will see a white screen since nothing is working~~
 
 ## Current Task
 * Try to get position changes of X axis
+
+## Change log: 
+Version 0.0.3:
+* Using kalman filter instead of moving avarage, which seems to be much better  
 
 ## Change log: 
 Version 0.0.2:  
