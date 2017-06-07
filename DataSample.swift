@@ -15,7 +15,6 @@ import Charts
 class DataSample
 {
     let size: Int
-    private(set) var max:Double
     private(set) var data: [ChartDataEntry]
     private(set) var filteredData: [ChartDataEntry]
     private(set) var velocityData: [ChartDataEntry]
@@ -25,16 +24,25 @@ class DataSample
     
     let mechanicalFilterLimit: Double = 0.0135
     
+    private(set) var _data: MinMax
+    private(set) var _filteredData: MinMax
+    private(set) var _positionData: MinMax
+    private(set) var _velocityData: MinMax
+    
     // MARK: -
     
     init(size: Int)
     {
         self.size = size
-        max = 0
         data = []
         filteredData = []
         velocityData = []
         positionData = []
+        
+        _data = MinMax()
+        _filteredData = MinMax()
+        _positionData = MinMax()
+        _velocityData = MinMax()
         
         kalmanFilter = KalmanFilter(stateEstimatePrior: 0.0, errorCovariancePrior: 1)
         
@@ -48,10 +56,9 @@ class DataSample
     
     /**
      Adds a new value to the samples. Then filters it and tries to calculates position.
-     
+     TODO: Try to use a queue structure instead of an array to make complexity O(1)
      - Complexity: O(n)
      */
-
     func add(value: Double)
     {
         if(data.count == size)
@@ -63,24 +70,35 @@ class DataSample
             positionData.removeFirst()
         }
         
+        operate(value)
+    }
+    
+    /**
+     Just a wrapper method of all the other methods. Filtering, zero-movement check and calculation all called out here
+     TODO: Try to use a queue structure instead of an array to make complexity O(1)
+     - Complexity: O(n)
+     */
+    func operate(_ value: Double)
+    {
         //We read the time here in order to make sure that all data arrays have the same time
         let time = getCurrentSeconds()
         
+        _data.trail(value)
         data.append(ChartDataEntry(x:time, y:value))
-        print(max)
+        
+        _filteredData.trail(value)
         filteredData.append(ChartDataEntry(x:time, y:filter(value:value)))
         calculatePosition(time:time)
-        setMax(number: value)
+        printStatics()
     }
     
     /**
      Filter
      
      Low pass filtering of the signal is a very good way to remove noise (both mechanical and electrical) from the accelerometer. Reducing the noise is critical for a positioning application in order to reduce major errors when integrating the signal. A simple way for low pass filtering a sampled signal is to perform a rolling average. Filtering is simply then reduced to obtain the average of a set of samples. It is important to obtain the average of a balanced amount of samples. Taking too many samples to do this process can result in a loss of data, yet taking too few can result in an inaccurate value.
-     TODO: Try to use a queue structure instead of an array to make complexity O(1)
-     - Complexity: O(n)
+     - Complexity: O(1)
      */
-    @available(*, deprecated, message: "There is a better way to do this, which is kamlan filter. Use this function with a paramater")
+    @available(*, deprecated, message: "There is a better way to do this, which is kalman filter. Call this function with a paramater")
     private func filter() -> Double
     {
         var sum: Double = 0
@@ -98,7 +116,8 @@ class DataSample
     /**
         This function tries to cancels noise using Kalman Filter, for [more info](https://en.wikipedia.org/wiki/Kalman_filter) As new data comes, the kalman filter gets updated. This method uses [this](https://github.com/wearereasonablepeople/KalmanFilter) library for the kalman filter.
         - Parameters:
-            - value: The number being tested against the current maximum value    
+            - value: The number being tested against the current maximum value
+        - Returns: the estimateted "noise free" value of data
      */
     private func filter(value:Double) -> Double
     {
@@ -125,19 +144,7 @@ class DataSample
         return data
     }
     
-    /**
-     Determines the maximum value of the sample by testing the input wih the current value.
-     - Parameters:
-        - number: The number being tested against the current maximum value
-     - Complexity: O(1)
-     */
-    func setMax(number: Double)
-    {
-        if(number > max)
-        {
-            max = number
-        }
-    }
+  
     /**
      This function transforms acceleration to a proportional position by integrating the acceleration data twice. It also adjusts sensibility by multiplying position. This integration algorithm carries error, which is compensated with "didMovementEnd" subroutine. Faster sampling frequency implies less error but requires more memory.
         TODO: Add sensibility and try to complete the algorithm.
@@ -157,11 +164,12 @@ class DataSample
             {
                 // Taking first integration in order to calculate velocity
                 let velocity = velocityData.beforeLast().y + (filteredData.last?.y)! + ((filteredData.last?.y)! - filteredData.beforeLast().y)
-                
+                _velocityData.trail(velocity)
                 velocityData.append(ChartDataEntry(x: time, y:velocity))
                 
                 // Taking second integration in order to calculate position
                 let position = positionData.beforeLast().y + (velocityData.last?.y)! + ((velocityData.last?.y)! - velocityData.beforeLast().y)
+                _velocityData.trail(position)
                 positionData.append(ChartDataEntry(x: time, y: position))
             }
             
@@ -187,7 +195,7 @@ class DataSample
     /**
      This function allows movement end detection. If a certain number of acceleration samples are equal to zero we can assume movement has stopped. Accumulated Error generated in the velocity calculations is eliminated by resetting the velocity variables. This stops position increment and greatly eliminates position error.
      
-     - Complexity: O(1)
+     - Complexity: O(n)
      */
     private func didMovementEnd() -> Bool
     {
@@ -205,5 +213,46 @@ class DataSample
         }
         return false
     }
+    
+    /**
+        Prints certian values to the console
+     - Complexity: O(1)
+     */
+    private func printStatics()
+    {
+        print("Original: \(_data)|Filtered: \(_filteredData)|Velocity: \(_velocityData)|Position: \(_positionData) \r")    }
+}
 
+class MinMax: CustomStringConvertible
+{
+    private(set) var min: Double
+    private(set) var max: Double
+    
+    init()
+    {
+        min = 0
+        max = 0
+    }
+    
+    public var description: String { return String(format: "(min: %.5f, max: %.5f)", min, max) }
+    
+    /**
+     Determines the maximum and minimum value of the sample by testing the input wih the current value.
+     - Parameters:
+     - number: The number being tested against the current maximum and minumum value
+     - Complexity: O(1)
+     */
+    func trail(_ number: Double)
+    {
+        if(number > max)
+        {
+            max = number
+        }
+        else if(number < min)
+        {
+            min = number;
+        }
+    }
+    
+    
 }
