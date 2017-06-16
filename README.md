@@ -2,66 +2,29 @@
 *Turn your phone to a magic wand*
 
 ## Brief Summary
-All IPhone and IPad devices have a device called accelerometer inside them. This accelerometer measures the acceleration of the three dimensions. This project is trying to calculate position changes of the device in order to create a real life like mouse, ultimately a magic wand that can be used in air. 
-Note that this acceleration problem is not like the ones that we had in physics class. The data is noisy and the calculus is hard. 
-More info on accelerometer's can be found [here](https://en.wikipedia.org/wiki/Accelerometer).
+This project is all about creating an air representer app which will allow users to move the mouse on the screen using their iPhones. Ideally they will also be able to use arrow keys, space keys and other keys that iPhones have. By this way, users are going to have a lot of control on their PC or Mac's. Instead of moving their phones like in the initial plan, they are going to rotate their phones which is going to move the mouse. 
 
-## Challenges
-1. **Display**: IOS.Charts giving me hard time. It is hard to show realtime data on IOS.
-2. **Noise Cancelation:** The data is noisy and needs filtering. Currently using ~~"moving average"~~ **"kalman filter"** technique.
-3. **Zero Movement:** Even the IPhone stays still, the accelerometer still reads small accelerations. 
-4. **Integration to position:** ~~No idea how to take integral :sweat_smile: ~~ Integration algorithm from the pdf seems to be doing the job.  
-*None of the challenge are fully solved at the moment.*
+## How to run?  
+* First make sure bluetooth is turned on both in your Mac and iPhone.
+* Plug your iPhone to your mac
+* Download the source code 
+* Go the `MousyMacApp` folder and run the `MousyMacApp.xcodeproj` file. When Xcode loads just press run and let the app open. 
+* Go the `MousyIOSApp` folder and run the `MousY.xcworkspce` not `MousY.xcodepoj`.
 
-## How to run?
-After downloading the source code; please open the project from `MousY.xcworkspce` not `MousY.xcodepoj`. Plug your Iphone or Ipad and press run. Hopefully some magic will happen. :relieved:  
-Version 0.0.4: Filter should be reliable as well  
-Version 0.0.3: ~~You will see four charts. Only the first chart is accurate for sure since it is pure acceleration in X-axis.~~  
-Version 0.0.1: ~~You will see two charts~~  
-Version 0.0.0: ~~You will see a white screen since nothing is working~~  
+If all goes well, your iPhone screen should be saying **App Found** on the screen. If that's the case press the button and watch the console on the Xcode, the one that you opened for `MousyMacApp`. 
 
-## Current Task
-* Try to get position changes of X axis
+## Version History  
+* This point is considered as a fresh start for this project. Commit: [c9f2141](https://bitbucket.org/egeaydin/mousy/commits/c9f214105e3813b0d8e998d2d57a02bb319ae170?at=master), [38b60e0](https://bitbucket.org/egeaydin/mousy/commits/38b60e00d680682f25e85b6bb026d279ff52c15a?at=master),
+ [140bab5](https://bitbucket.org/egeaydin/mousy/commits/140bab597cb07b32b54b05e22b62677a9059d396?at=master):
+    * Created the new Mac App
+    * Bluetooth added to both mac and iOS app
+    * Mac app acts as a peripheral device and iOS app can send messages to it
+    * Uninstalled the charts package, which was not necessary anymore because of the new approach
+    * Got rid of the old ViewController, there was nothing special about it.
+* Including commit [5738a8a](https://bitbucket.org/egeaydin/mousy/commits/5738a8a25090fdad623ca23a85404e8418968d0e?at=master) and before this project was trying a different approach.
 
-## Change log: 
-
-Version 0.0.4: 
-
-* Introduced new type which is MinMax. Now logging max and min for four different values. 
-
-Version 0.0.3:
-
-* Using kalman filter instead of moving average, which seems to be much better  
-
-Version 0.0.2:  
-
-* Added position calculation and some helper functions. Position calculation is wrong. 
-
-Version 0.0.1:  
-
-* Read the accelerometer data  
-* Create a type for data sample which will collect the samples and do the operations on it    
-* Display the X acceleration and so called filtered data on two separate graphs  
-
-## Known problems  
-
-Version 0.0.3:
-
-* No movement condition and movement stop condition is not accurate thus breaking the following calculations. 
-
-Version 0.0.2:
-
-* ~~The filtering system is inaccurate thus causing miscalculations on velocity following position.~~
-
-Version 0.0.1:
-
-* After sometime the X acceleration chart seems to be getting weird, at same time filter graph freezes. Not sure it is because of Charts or DataSample.
-* When giving constraints the charts view don't appear.
-
-Version 0.0.0 
-
-* ~~Cannot seem to be able properly display realtime data on the screen. ~~  
-* ~~Bunch of annoying cocoapods warnings ~~
+## Known problems
+* Sometimes the iOS app cannot see the mac app, or problems when connecting might be encountered. If that happens please stop the both apps and run the mac app first, then run the iOS app. Which hopefully will fix the connection problem. :relieved:
 
 ## Eager to help?
-Read the challenges again. :smiley: Even small tips and suggestions are appreciated.
+Even small advices and suggestions are appreciated. Currently everything seems to be going smoothly.
