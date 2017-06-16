@@ -7,6 +7,7 @@
 //
 
 import CoreBluetooth
+import CoreMotion
 import Foundation
 import UIKit
 
@@ -15,9 +16,13 @@ class ConnectionController: UIViewController, CBCentralManagerDelegate, CBPeriph
     var manager:CBCentralManager!
     var peripheral:CBPeripheral!
     var charecteristic: CBCharacteristic!
+    var motionManager: CMMotionManager!
+    
     
     let SERVICE_UUID = CBUUID(string: "a495ff20-c5b1-4b44-b512-1370f02d74de")
     let CHARACTER_UUID = CBUUID(string: "c4ac425e-ab73-46ff-aff8-e89d32df6d12")
+    
+    
     
     var counter = 0
     
@@ -25,14 +30,25 @@ class ConnectionController: UIViewController, CBCentralManagerDelegate, CBPeriph
     
     @IBOutlet weak var button: UIButton!
     @IBAction func b(_ sender: Any) {
-        peripheral.writeValue("\(counter)".data(using: String.Encoding.utf8)!, for: charecteristic, type: CBCharacteristicWriteType.withoutResponse)
-        counter += 1
+        self.motionManager.startDeviceMotionUpdates(to: OperationQueue.main, withHandler: {  deviceMotion, error in
+            if let dMotion = deviceMotion
+            {
+                let rr = dMotion.rotationRate
+                
+                let rotModel = XYZ(x: rr.x, y: rr.y, z: rr.z)
+                
+                self.peripheral.writeValue(rotModel.toData(), for: self.charecteristic, type: CBCharacteristicWriteType.withoutResponse)
+                
+            }
+        })
+
 
     }
     required init?(coder: NSCoder)
     {
         super.init(coder: coder)
         self.manager = CBCentralManager(delegate: self, queue: nil)
+        self.motionManager = CMMotionManager()
     }
     
     override func viewDidLoad()

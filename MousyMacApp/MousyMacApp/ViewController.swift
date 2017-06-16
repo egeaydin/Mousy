@@ -77,9 +77,14 @@ class ViewController: NSViewController, CBPeripheralManagerDelegate
     
     
     func peripheralManager(_ peripheral: CBPeripheralManager, didReceiveWrite requests: [CBATTRequest]) {
-        if let data = String.init(data: requests.first!.value!, encoding: String.Encoding.utf8)
+        do
         {
-            print(data)
+            let rotation = try XYZ.fromData(data: requests.first!.value!)
+            print(rotation)
+        }
+        catch
+        {
+            print("error")
         }
     }
     
