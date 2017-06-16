@@ -14,6 +14,10 @@ This project is all about creating an air representer app which will allow users
 If all goes well, your iPhone screen should be saying **App Found** on the screen. If that's the case press the button and watch the console on the Xcode, the one that you opened for `MousyMacApp`. 
 
 ## Version History  
+* Commit: [f8ee865](https://bitbucket.org/egeaydin/mousy/commits/f8ee8657a750735d00cfd897f05104611dd246ba)  
+    * Created a class called XYZ to hold three axis values. This class is shared between both iOS and the mac app
+    * The app now reads the rotation rate values from device motion and sends it to the mac app
+    * The button on the screen starts the transmission now 
 * This point is considered as a fresh start for this project. Commit: [c9f2141](https://bitbucket.org/egeaydin/mousy/commits/c9f214105e3813b0d8e998d2d57a02bb319ae170?at=master), [38b60e0](https://bitbucket.org/egeaydin/mousy/commits/38b60e00d680682f25e85b6bb026d279ff52c15a?at=master),
  [140bab5](https://bitbucket.org/egeaydin/mousy/commits/140bab597cb07b32b54b05e22b62677a9059d396?at=master):
     * Created the new Mac App
