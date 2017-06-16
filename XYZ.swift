@@ -49,7 +49,7 @@ class XYZ: CustomStringConvertible
             case "z":
                 z = value
             default:
-                throw ConversionError.InvalidInputString("The input string has invalied character: \(p[0])")
+                throw ConversionError.InvalidInputString("The input string has invalid character: \(p[0])")
             }
         }
         

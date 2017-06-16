@@ -122,4 +122,11 @@ class ConnectionController: UIViewController, CBCentralManagerDelegate, CBPeriph
     func peripheral(_ peripheral: CBPeripheral, didWriteValueFor characteristic: CBCharacteristic, error: Error?) {
         print("wrote value")
     }
+    
+    func peripheral(_ peripheral: CBPeripheral, didModifyServices invalidatedServices: [CBService]) {
+        
+        labelDriverStatus.text = "Service stopeed"
+        button.isEnabled = false
+        self.manager.scanForPeripherals(withServices: nil, options: nil)
+    }
 }

@@ -17,6 +17,8 @@ class ViewController: NSViewController, CBPeripheralManagerDelegate
     let SERVICE_UUID = CBUUID(string: "a495ff20-c5b1-4b44-b512-1370f02d74de")
     let CHARACTER_UUID = CBUUID(string: "c4ac425e-ab73-46ff-aff8-e89d32df6d12")
     
+    @IBOutlet weak var label: NSButton!
+    
     required init?(coder: NSCoder)
     {
         super.init(coder: coder)
@@ -37,6 +39,11 @@ class ViewController: NSViewController, CBPeripheralManagerDelegate
     override func viewDidLoad()
     {
         super.viewDidLoad()
+    }
+    
+    override func viewWillDisappear() {
+        peripheralManager.stopAdvertising()
+        super.viewWillDisappear()
     }
 
     override var representedObject: Any?
@@ -80,6 +87,8 @@ class ViewController: NSViewController, CBPeripheralManagerDelegate
         do
         {
             let rotation = try XYZ.fromData(data: requests.first!.value!)
+            label.frame.origin.x += -CGFloat(rotation.z * 10)
+            label.frame.origin.y += CGFloat(rotation.x * 10)
             print(rotation)
         }
         catch
