@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:XYZ.swift">
+   </FileRef>
+   <FileRef
+      location = "group:MousyiOSApp/MousyiOSApp.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:MousyMacApp/MousyMacApp.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Pods/Pods.xcodeproj">
+   </FileRef>
+</Workspace>
