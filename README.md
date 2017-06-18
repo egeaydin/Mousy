@@ -8,13 +8,25 @@ This project is all about creating an air representer app which will allow users
 * First make sure bluetooth is turned on both in your Mac and iPhone.
 * Plug your iPhone to your mac
 * Download the source code 
-* Go the `MousyMacApp` folder and run the `MousyMacApp.xcodeproj` file. When Xcode loads just press run and let the app open. 
-* Go the `MousyIOSApp` folder and run the `MousY.xcworkspce` not `MousY.xcodepoj`.
+* Go the `mousy` folder and run the `MousY.xcworkspce`, *there are other `.xproj` files, don't run them.*.  
+* Notice the app label next to the stop button!   
+![Screen Shot 2017-06-17 at 8.44.42 PM.png](https://bitbucket.org/repo/9p8MEoj/images/4238907715-Screen%20Shot%202017-06-17%20at%208.44.42%20PM.png) or ![Screen Shot 2017-06-17 at 8.45.28 PM.png](https://bitbucket.org/repo/9p8MEoj/images/2718577939-Screen%20Shot%202017-06-17%20at%208.45.28%20PM.png)  
+* If you click the app level you will notice you can go between apps  
+![Screen Shot 2017-06-17 at 8.43.47 PM.png](https://bitbucket.org/repo/9p8MEoj/images/1143943264-Screen%20Shot%202017-06-17%20at%208.43.47%20PM.png)
+* First pick `MousyMacApp` and run it using play button
+* Second pick `MousyiOSApp` and run it using play button
 
-If all goes well, your iPhone screen should be saying **App Found** on the screen. If that's the case press the button and watch the console on the Xcode, the one that you opened for `MousyMacApp`. 
+If all goes well, your iPhone screen should be saying **App Found** on the screen. If that's the case press the button that says start and watch the console on the Xcode. Make sure you are seeing the mac app console by the following:  
+* Notice the app label in the debug area  
+![Screen Shot 2017-06-17 at 8.51.04 PM.png](https://bitbucket.org/repo/9p8MEoj/images/1641456974-Screen%20Shot%202017-06-17%20at%208.51.04%20PM.png)  
+* If it's saying `MousyMacApp` you are on the mac app console. Otherwise change it by clicking on it.  
+![Screen Shot 2017-06-17 at 8.51.16 PM.png](https://bitbucket.org/repo/9p8MEoj/images/2053584983-Screen%20Shot%202017-06-17%20at%208.51.16%20PM.png)
 
 ## Version History  
-* Commit: [f8ddd04](https://bitbucket.org/egeaydin/mousy/commits/f8ddd04f8a1185a4319b879863c608f59ea216d5)  
+* Commits between: [facbd90](https://bitbucket.org/egeaydin/mousy/commits/facbd90814f223dd27cfe26042a0a2e79dcded49) - [f8ddd04](https://bitbucket.org/egeaydin/mousy/commits/f8ddd04f8a1185a4319b879863c608f59ea216d5)
+    * Merged two app into the same workspace
+    * Converted to mac app to a game app in order to take advantages of vectors 
+* Commit: [88f3184](https://bitbucket.org/egeaydin/mousy/commits/88f31848ee4c600cd662ad03a4ed97fe9e6c25a4)  
     * A big ugly button added to mac app for testing purposes, the button moves with the iPhone connected  
 * Commit: [f8ee865](https://bitbucket.org/egeaydin/mousy/commits/f8ee8657a750735d00cfd897f05104611dd246ba)  
     * Created a class called XYZ to hold three axis values. This class is shared between both iOS and the mac app
