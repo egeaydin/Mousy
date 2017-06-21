@@ -10,22 +10,25 @@ import Foundation
 
 class Package
 {
-    private let _package: String
-    init(key: Action, value: String)
+    let action: Action
+    let value: String
+    
+    init(action: Action, value: String)
     {
-        _package = "\(key.rawValue)|\(value)"
+        self.action = action
+        self.value = value
     }
     
     func toData() -> Data
     {
-        return _package.data(using: String.Encoding.utf8)!
+        return "\(action.rawValue)|\(value)".data(using: String.Encoding.utf8)!
     }
     
-    static func from(data: Data) -> (key:Action, value:String)
+    static func from(data: Data) -> Package
     {
         let str = String(data: data, encoding: String.Encoding.utf8)!
         let p = str.components(separatedBy: "|")
-        return (Action(rawValue: p[0])!, p[1])
+        return Package(action: Action(rawValue: p[0])!, value: p[1])
     }
 }
 

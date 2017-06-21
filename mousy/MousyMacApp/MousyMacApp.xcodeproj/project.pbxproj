@@ -8,10 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		392055881EFA683D00E77D0C /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392055871EFA683D00E77D0C /* Package.swift */; };
+		3920558A1EFA7EAE00E77D0C /* Mouse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392055891EFA7EAE00E77D0C /* Mouse.swift */; };
+		3920558C1EFA83C600E77D0C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3920558B1EFA83C600E77D0C /* Extensions.swift */; };
+		3920558E1EFA85B700E77D0C /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3920558D1EFA85B700E77D0C /* Global.swift */; };
 		394254241EF627C3004BD81F /* XYZ.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394254231EF627C3004BD81F /* XYZ.swift */; };
 		39BB87901EF6205500A34936 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BB878F1EF6205500A34936 /* AppDelegate.swift */; };
 		39BB87921EF6205500A34936 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 39BB87911EF6205500A34936 /* GameScene.sks */; };
-		39BB87941EF6205500A34936 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 39BB87931EF6205500A34936 /* Actions.sks */; };
 		39BB87961EF6205500A34936 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BB87951EF6205500A34936 /* GameScene.swift */; };
 		39BB87981EF6205500A34936 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BB87971EF6205500A34936 /* ViewController.swift */; };
 		39BB879A1EF6205500A34936 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39BB87991EF6205500A34936 /* Assets.xcassets */; };
@@ -21,11 +23,13 @@
 
 /* Begin PBXFileReference section */
 		392055871EFA683D00E77D0C /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Package.swift; path = ../Package.swift; sourceTree = "<group>"; };
+		392055891EFA7EAE00E77D0C /* Mouse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mouse.swift; sourceTree = "<group>"; };
+		3920558B1EFA83C600E77D0C /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		3920558D1EFA85B700E77D0C /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		394254231EF627C3004BD81F /* XYZ.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = XYZ.swift; path = ../XYZ.swift; sourceTree = "<group>"; };
 		39BB878C1EF6205500A34936 /* MousyMacApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MousyMacApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39BB878F1EF6205500A34936 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		39BB87911EF6205500A34936 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		39BB87931EF6205500A34936 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		39BB87951EF6205500A34936 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		39BB87971EF6205500A34936 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		39BB87991EF6205500A34936 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -48,6 +52,8 @@
 		39BB87831EF6205500A34936 = {
 			isa = PBXGroup;
 			children = (
+				3920558B1EFA83C600E77D0C /* Extensions.swift */,
+				392055891EFA7EAE00E77D0C /* Mouse.swift */,
 				392055871EFA683D00E77D0C /* Package.swift */,
 				39BBFE1F1EFA3D5600FB23E3 /* Identity.swift */,
 				394254231EF627C3004BD81F /* XYZ.swift */,
@@ -69,12 +75,12 @@
 			children = (
 				39BB878F1EF6205500A34936 /* AppDelegate.swift */,
 				39BB87911EF6205500A34936 /* GameScene.sks */,
-				39BB87931EF6205500A34936 /* Actions.sks */,
 				39BB87951EF6205500A34936 /* GameScene.swift */,
 				39BB87971EF6205500A34936 /* ViewController.swift */,
 				39BB87991EF6205500A34936 /* Assets.xcassets */,
 				39BB879B1EF6205500A34936 /* Main.storyboard */,
 				39BB879E1EF6205500A34936 /* Info.plist */,
+				3920558D1EFA85B700E77D0C /* Global.swift */,
 			);
 			path = MousyMacApp;
 			sourceTree = "<group>";
@@ -141,7 +147,6 @@
 			files = (
 				39BB87921EF6205500A34936 /* GameScene.sks in Resources */,
 				39BB879A1EF6205500A34936 /* Assets.xcassets in Resources */,
-				39BB87941EF6205500A34936 /* Actions.sks in Resources */,
 				39BB879D1EF6205500A34936 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -154,9 +159,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				392055881EFA683D00E77D0C /* Package.swift in Sources */,
+				3920558E1EFA85B700E77D0C /* Global.swift in Sources */,
 				39BB87981EF6205500A34936 /* ViewController.swift in Sources */,
 				39BB87961EF6205500A34936 /* GameScene.swift in Sources */,
 				39BBFE201EFA3D5600FB23E3 /* Identity.swift in Sources */,
+				3920558A1EFA7EAE00E77D0C /* Mouse.swift in Sources */,
+				3920558C1EFA83C600E77D0C /* Extensions.swift in Sources */,
 				39BB87901EF6205500A34936 /* AppDelegate.swift in Sources */,
 				394254241EF627C3004BD81F /* XYZ.swift in Sources */,
 			);

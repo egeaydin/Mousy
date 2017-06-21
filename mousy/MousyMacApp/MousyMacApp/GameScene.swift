@@ -17,17 +17,9 @@ class GameScene: SKScene, CBPeripheralManagerDelegate
     var peripheralManager: CBPeripheralManager!
     var characteristics: CBCharacteristic!
     var pointer: SKSpriteNode!
-    
-    let screenWidth: CGFloat
-    let screenHeight: CGFloat
-    
+        
     required init?(coder: NSCoder)
     {
-        let scrn: NSScreen = NSScreen.main()!
-        let rect: NSRect = scrn.frame
-        screenHeight =  rect.size.height
-        screenWidth = rect.size.width
-        
         super.init(coder: coder)
         
         self.peripheralManager = CBPeripheralManager(delegate: self, queue: nil)
@@ -45,7 +37,8 @@ class GameScene: SKScene, CBPeripheralManagerDelegate
         
     }
     
-    override func didMove(to view: SKView) {
+    override func didMove(to view: SKView)
+    {
         pointer = self.childNode(withName: "pointer") as! SKSpriteNode
     }
     
@@ -78,52 +71,19 @@ class GameScene: SKScene, CBPeripheralManagerDelegate
         }
     }
     
-    func peripheralManager(_ peripheral: CBPeripheralManager, didReceiveWrite requests: [CBATTRequest]) {
+    func peripheralManager(_ peripheral: CBPeripheralManager, didReceiveWrite requests: [CBATTRequest])
+    {
         do
         {
-            let package = Package.from(data: requests.first!.value!)
-            
-            switch package.key {
-            case Action.mouseMove:
-                let acc = try XYZ.from(string: package.value)
-                print("\(package.key), \(acc)")
-                
-                // pointer.physicsBody!.applyForce(CGVector(dx: 100 * CGFloat(-acc.z), dy: 100 * CGFloat(acc.x)))
-                let w = 0.5
-                if acc.z < -w || acc.z > w
+            if let req = requests.first
+            {
+                if let val = req.value
                 {
-                    pointer.position.x += 15 * CGFloat(-acc.z)
-                    
-                    if pointer.position.x > screenWidth
-                    {
-                        pointer.position.x = screenWidth
-                    }
-                    else if(pointer.position.x < 0)
-                    {
-                        pointer.position.x = 0
-                    }
+                    let package = Package.from(data: val)
+                    try Mouse.operate(package: package, point: &pointer.position)
                 }
-                
-                if acc.x < -w || acc.x > w
-                {
-                    pointer.position.y += 15 * CGFloat(-acc.x)
-                    
-                    if pointer.position.y > screenHeight
-                    {
-                        pointer.position.y = screenHeight
-                    }
-                    else if(pointer.position.y < 0)
-                    {
-                        pointer.position.y = 0
-                    }
-                }
-                CGWarpMouseCursorPosition(CGPoint(x: pointer.position.x, y: pointer.position.y))
-                
-            case Action.mouseLeftClick:
-                print("left click")
-            case Action.mouseRightClick:
-                print("right click")
             }
+            
             
         }
         catch
@@ -131,5 +91,6 @@ class GameScene: SKScene, CBPeripheralManagerDelegate
             print("error")
         }
     }
+    
     
 }

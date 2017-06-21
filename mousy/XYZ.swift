@@ -10,9 +10,9 @@ import Foundation
 
 class XYZ: CustomStringConvertible
 {
-    let x: Double
-    let y: Double
-    let z: Double
+    var x: Double
+    var y: Double
+    var z: Double
     
     public var description: String { return "x:\(self.x),y:\(self.y),z:\(self.z)" }
     

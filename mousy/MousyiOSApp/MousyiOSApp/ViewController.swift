@@ -71,7 +71,7 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
                         
                         let xyz = XYZ(x: rr.x + acc.x, y: rr.y + acc.y, z: rr.z + acc.z)
                         
-                        self.peripheral.writeValue(Package(key: Action.mouseMove, value: "\(xyz)").toData(), for: self.charecteristic, type: CBCharacteristicWriteType.withoutResponse)
+                        self.send(action: Action.mouseMove, message: "\(xyz)")
                         
                     }
             })
@@ -81,10 +81,10 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
     }
     
     @IBAction func leftClick(_ sender: Any) {
-        self.peripheral.writeValue(Package(key: Action.mouseLeftClick, value: "nil").toData(), for: self.charecteristic, type: CBCharacteristicWriteType.withoutResponse)
+        self.send(action: Action.mouseLeftClick)
     }
     @IBAction func rightClick(_ sender: Any) {
-        self.peripheral.writeValue(Package(key: Action.mouseRightClick, value: "nil").toData(), for: self.charecteristic, type: CBCharacteristicWriteType.withoutResponse)
+        self.send(action: Action.mouseRightClick)
     }
 
     // MARK:- View Management
@@ -179,5 +179,10 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
         buttonStartOrStopMouseMove.isEnabled = false
         
         self.manager.scanForPeripherals(withServices: nil, options: nil)
+    }
+    
+    func send(action: Action, message: String = "nil")
+    {
+        self.peripheral.writeValue(Package(action: action, value: message).toData(), for: self.charecteristic, type: CBCharacteristicWriteType.withoutResponse)
     }
 }

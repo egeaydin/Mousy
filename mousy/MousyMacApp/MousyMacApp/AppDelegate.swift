@@ -10,16 +10,13 @@
 import Cocoa
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate {
-    
-    
-    func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to initialize your application
+class AppDelegate: NSObject, NSApplicationDelegate
+{
+    func applicationDidFinishLaunching(_ aNotification: Notification)
+    {
+        let scrn: NSScreen = NSScreen.main()!
+        let rect: NSRect = scrn.frame
+        screenHeight =  rect.size.height
+        screenWidth = rect.size.width
     }
-    
-    func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
-    }
-    
-    
 }
