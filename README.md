@@ -23,6 +23,8 @@ If all goes well, your iPhone screen should be saying **App Found** on the scree
 ![Screen Shot 2017-06-17 at 8.51.16 PM.png](https://bitbucket.org/repo/9p8MEoj/images/2053584983-Screen%20Shot%202017-06-17%20at%208.51.16%20PM.png)
 
 ## Version History  
+* Commit [f7e67b4](https://bitbucket.org/egeaydin/mousy/commits/f7e67b401c98a201a70e55511c4cbc2807c6c992)
+    * Now the rotation data moves the mouse cursor
 * Commits between: [facbd90](https://bitbucket.org/egeaydin/mousy/commits/facbd90814f223dd27cfe26042a0a2e79dcded49) - [f8ddd04](https://bitbucket.org/egeaydin/mousy/commits/f8ddd04f8a1185a4319b879863c608f59ea216d5)
     * Merged two app into the same workspace
     * Converted to mac app to a game app in order to take advantages of vectors 
@@ -42,7 +44,10 @@ If all goes well, your iPhone screen should be saying **App Found** on the scree
 * Including commit [5738a8a](https://bitbucket.org/egeaydin/mousy/commits/5738a8a25090fdad623ca23a85404e8418968d0e?at=master) and before this project was trying a different approach.
 
 ## Known problems
-* Sometimes the iOS app cannot see the mac app, or problems when connecting might be encountered. If that happens please stop the both apps and run the mac app first, then run the iOS app. Which hopefully will fix the connection problem. :relieved:
-
+* Commit [f7e67b4](https://bitbucket.org/egeaydin/mousy/commits/f7e67b401c98a201a70e55511c4cbc2807c6c992)
+    * The movement of mouse cursor is not that great
+* Commit: [c9f2141](https://bitbucket.org/egeaydin/mousy/commits/c9f214105e3813b0d8e998d2d57a02bb319ae170?at=master), [38b60e0](https://bitbucket.org/egeaydin/mousy/commits/38b60e00d680682f25e85b6bb026d279ff52c15a?at=master),
+ [140bab5](https://bitbucket.org/egeaydin/mousy/commits/140bab597cb07b32b54b05e22b62677a9059d396?at=master):
+    * Sometimes the iOS app cannot see the mac app, or problems when connecting might be encountered. If that happens please stop the both apps and run the mac app first, then run the iOS app. Which hopefully will fix the connection problem. :relieved:
 ## Eager to help?
 Even small advices and suggestions are appreciated. Currently everything seems to be going smoothly.
