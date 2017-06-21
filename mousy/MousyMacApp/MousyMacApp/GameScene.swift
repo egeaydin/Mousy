@@ -9,15 +9,16 @@
 import SpriteKit
 import GameplayKit
 import CoreBluetooth
+import CoreGraphics
+
 
 class GameScene: SKScene, CBPeripheralManagerDelegate
 {
     var peripheralManager: CBPeripheralManager!
     var characteristics: CBCharacteristic!
     
-    let SERVICE_UUID = CBUUID(string: "a495ff20-c5b1-4b44-b512-1370f02d74de")
-    let CHARACTER_UUID = CBUUID(string: "c4ac425e-ab73-46ff-aff8-e89d32df6d12")
-    //pok
+    var pointer: SKSpriteNode!
+    
     required init?(coder: NSCoder)
     {
         super.init(coder: coder)
@@ -33,6 +34,10 @@ class GameScene: SKScene, CBPeripheralManagerDelegate
         advDict[CBAdvertisementDataLocalNameKey] = "mousyMacApp"
         
         peripheralManager.startAdvertising(advDict)
+    }
+    
+    override func didMove(to view: SKView) {
+        pointer = self.childNode(withName: "pointer") as! SKSpriteNode
     }
     
     func peripheralManagerDidUpdateState(_ peripheral: CBPeripheralManager)
@@ -64,12 +69,24 @@ class GameScene: SKScene, CBPeripheralManagerDelegate
         }
     }
     
-    
     func peripheralManager(_ peripheral: CBPeripheralManager, didReceiveWrite requests: [CBATTRequest]) {
         do
         {
-            let rotation = try XYZ.fromData(data: requests.first!.value!)
-            print(rotation)
+            let acc = try XYZ.fromData(data: requests.first!.value!)
+            print(acc)
+            // pointer.physicsBody!.applyForce(CGVector(dx: 100 * CGFloat(-acc.z), dy: 100 * CGFloat(acc.x)))
+            let w = 0.1
+            if acc.z < w || acc.z > w
+            {
+                pointer.position.x += 15 * CGFloat(-acc.z)
+            }
+            
+            if acc.x < w || acc.x > w
+            {
+                pointer.position.y += 15 * CGFloat(-acc.x)
+            }
+            
+            CGWarpMouseCursorPosition(CGPoint(x: pointer.position.x, y: pointer.position.y))
         }
         catch
         {

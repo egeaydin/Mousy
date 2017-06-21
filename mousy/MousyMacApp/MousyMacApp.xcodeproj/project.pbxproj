@@ -15,6 +15,7 @@
 		39BB87981EF6205500A34936 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BB87971EF6205500A34936 /* ViewController.swift */; };
 		39BB879A1EF6205500A34936 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39BB87991EF6205500A34936 /* Assets.xcassets */; };
 		39BB879D1EF6205500A34936 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39BB879B1EF6205500A34936 /* Main.storyboard */; };
+		39BBFE201EFA3D5600FB23E3 /* Identity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BBFE1F1EFA3D5600FB23E3 /* Identity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		39BB87991EF6205500A34936 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		39BB879C1EF6205500A34936 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		39BB879E1EF6205500A34936 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		39BBFE1F1EFA3D5600FB23E3 /* Identity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Identity.swift; path = ../Identity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +46,7 @@
 		39BB87831EF6205500A34936 = {
 			isa = PBXGroup;
 			children = (
+				39BBFE1F1EFA3D5600FB23E3 /* Identity.swift */,
 				394254231EF627C3004BD81F /* XYZ.swift */,
 				39BB878E1EF6205500A34936 /* MousyMacApp */,
 				39BB878D1EF6205500A34936 /* Products */,
@@ -149,6 +152,7 @@
 			files = (
 				39BB87981EF6205500A34936 /* ViewController.swift in Sources */,
 				39BB87961EF6205500A34936 /* GameScene.swift in Sources */,
+				39BBFE201EFA3D5600FB23E3 /* Identity.swift in Sources */,
 				39BB87901EF6205500A34936 /* AppDelegate.swift in Sources */,
 				394254241EF627C3004BD81F /* XYZ.swift in Sources */,
 			);

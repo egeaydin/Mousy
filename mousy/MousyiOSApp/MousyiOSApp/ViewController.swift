@@ -19,8 +19,7 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
     var motionManager: CMMotionManager!
     
     
-    let SERVICE_UUID = CBUUID(string: "a495ff20-c5b1-4b44-b512-1370f02d74de")
-    let CHARACTER_UUID = CBUUID(string: "c4ac425e-ab73-46ff-aff8-e89d32df6d12")
+
     
     
     
@@ -35,6 +34,7 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
             if let dMotion = deviceMotion
             {
                 let rr = dMotion.rotationRate
+                let acc = dMotion.userAcceleration
                 
                 let rotModel = XYZ(x: rr.x, y: rr.y, z: rr.z)
                 
