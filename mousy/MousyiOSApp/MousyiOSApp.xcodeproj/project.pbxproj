@@ -12,6 +12,7 @@
 		390D4B701EF62428008369D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 390D4B6E1EF62428008369D3 /* Main.storyboard */; };
 		390D4B721EF62428008369D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 390D4B711EF62428008369D3 /* Assets.xcassets */; };
 		390D4B751EF62428008369D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 390D4B731EF62428008369D3 /* LaunchScreen.storyboard */; };
+		392055861EFA675500E77D0C /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392055851EFA675500E77D0C /* Package.swift */; };
 		394254221EF627B2004BD81F /* XYZ.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394254211EF627B2004BD81F /* XYZ.swift */; };
 		39BBFE1E1EFA3D5100FB23E3 /* Identity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BBFE1D1EFA3D5100FB23E3 /* Identity.swift */; };
 /* End PBXBuildFile section */
@@ -24,6 +25,7 @@
 		390D4B711EF62428008369D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		390D4B741EF62428008369D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		390D4B761EF62428008369D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		392055851EFA675500E77D0C /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Package.swift; path = ../Package.swift; sourceTree = "<group>"; };
 		394254211EF627B2004BD81F /* XYZ.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = XYZ.swift; path = ../XYZ.swift; sourceTree = "<group>"; };
 		39BBFE1D1EFA3D5100FB23E3 /* Identity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Identity.swift; path = ../Identity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -44,6 +46,7 @@
 			children = (
 				39BBFE1D1EFA3D5100FB23E3 /* Identity.swift */,
 				394254211EF627B2004BD81F /* XYZ.swift */,
+				392055851EFA675500E77D0C /* Package.swift */,
 				390D4B691EF62428008369D3 /* MousyiOSApp */,
 				390D4B681EF62428008369D3 /* Products */,
 			);
@@ -144,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				390D4B6D1EF62428008369D3 /* ViewController.swift in Sources */,
+				392055861EFA675500E77D0C /* Package.swift in Sources */,
 				394254221EF627B2004BD81F /* XYZ.swift in Sources */,
 				390D4B6B1EF62428008369D3 /* AppDelegate.swift in Sources */,
 				39BBFE1E1EFA3D5100FB23E3 /* Identity.swift in Sources */,

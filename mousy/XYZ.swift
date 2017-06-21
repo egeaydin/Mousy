@@ -23,14 +23,9 @@ class XYZ: CustomStringConvertible
         self.z = z
     }
     
-    func toData() -> Data
+    static func from(string: String) throws -> XYZ
     {
-        return "\(self)".data(using: String.Encoding.utf8)!
-    }
-    
-    static func fromString(str: String) throws -> XYZ
-    {
-        let values = str.components(separatedBy: ",")
+        let values = string.components(separatedBy: ",")
         
         var x = 0.0
         var y = 0.0
@@ -49,17 +44,11 @@ class XYZ: CustomStringConvertible
             case "z":
                 z = value
             default:
-                throw ConversionError.InvalidInputString("The input string has invalid character: \(p[0])")
+                throw ConversionError.InvalidInputString("The input string has an invalid character: \(p[0])")
             }
         }
         
         return XYZ(x:x, y:y, z:z)
-    }
-    
-    static func fromData(data: Data) throws -> XYZ
-    {
-        let str = String(data: data, encoding: String.Encoding.utf8)!
-        return try fromString(str: str)
     }
 }
 

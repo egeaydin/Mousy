@@ -81,39 +81,50 @@ class GameScene: SKScene, CBPeripheralManagerDelegate
     func peripheralManager(_ peripheral: CBPeripheralManager, didReceiveWrite requests: [CBATTRequest]) {
         do
         {
-            let acc = try XYZ.fromData(data: requests.first!.value!)
-            print(acc)
-            // pointer.physicsBody!.applyForce(CGVector(dx: 100 * CGFloat(-acc.z), dy: 100 * CGFloat(acc.x)))
-            let w = 0.5
-            if acc.z < w || acc.z > w
-            {
-                pointer.position.x += 15 * CGFloat(-acc.z)
+            let package = Package.from(data: requests.first!.value!)
+            
+            switch package.key {
+            case Action.mouseMove:
+                let acc = try XYZ.from(string: package.value)
+                print("\(package.key), \(acc)")
                 
-                if pointer.position.x > screenWidth
+                // pointer.physicsBody!.applyForce(CGVector(dx: 100 * CGFloat(-acc.z), dy: 100 * CGFloat(acc.x)))
+                let w = 0.5
+                if acc.z < -w || acc.z > w
                 {
-                    pointer.position.x = screenWidth
+                    pointer.position.x += 15 * CGFloat(-acc.z)
+                    
+                    if pointer.position.x > screenWidth
+                    {
+                        pointer.position.x = screenWidth
+                    }
+                    else if(pointer.position.x < 0)
+                    {
+                        pointer.position.x = 0
+                    }
                 }
-                else if(pointer.position.x < 0)
+                
+                if acc.x < -w || acc.x > w
                 {
-                    pointer.position.x = 0
+                    pointer.position.y += 15 * CGFloat(-acc.x)
+                    
+                    if pointer.position.y > screenHeight
+                    {
+                        pointer.position.y = screenHeight
+                    }
+                    else if(pointer.position.y < 0)
+                    {
+                        pointer.position.y = 0
+                    }
                 }
+                CGWarpMouseCursorPosition(CGPoint(x: pointer.position.x, y: pointer.position.y))
+                
+            case Action.mouseLeftClick:
+                print("left click")
+            case Action.mouseRightClick:
+                print("right click")
             }
             
-            if acc.x < w || acc.x > w
-            {
-                pointer.position.y += 15 * CGFloat(-acc.x)
-                
-                if pointer.position.y > screenHeight
-                {
-                    pointer.position.y = screenHeight
-                }
-                else if(pointer.position.y < 0)
-                {
-                    pointer.position.y = 0
-                }
-            }
-            
-            CGWarpMouseCursorPosition(CGPoint(x: pointer.position.x, y: pointer.position.y))
         }
         catch
         {
