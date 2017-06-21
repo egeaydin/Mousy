@@ -26,6 +26,8 @@ If all goes well, your iPhone screen should be saying **App Found** on the scree
 ![Screen Shot 2017-06-17 at 8.51.16 PM.png](https://bitbucket.org/repo/9p8MEoj/images/2053584983-Screen%20Shot%202017-06-17%20at%208.51.16%20PM.png)
 
 ## Version History  
+* Commit [18071f1](https://bitbucket.org/egeaydin/mousy/commits/18071f1280fe789d5f509351d4c166b4ce5b3f1f?at=master)
+    * Right click is working
 * Commits between: [2021f7c](https://bitbucket.org/egeaydin/mousy/commits/2021f7c8b8057fc0bc4c586d1c064b65e9021dac) - [9490e4d](https://bitbucket.org/egeaydin/mousy/commits/9490e4d813a47587c20c86349f4c6d92d2ca5a4a)
     * Left click is working
     * Now the mouse movement can be started and stoped
@@ -50,6 +52,9 @@ If all goes well, your iPhone screen should be saying **App Found** on the scree
 * Including commit [5738a8a](https://bitbucket.org/egeaydin/mousy/commits/5738a8a25090fdad623ca23a85404e8418968d0e?at=master) and before this project was trying a different approach.
 
 ## Known problems
+* Commit [18071f1](https://bitbucket.org/egeaydin/mousy/commits/18071f1280fe789d5f509351d4c166b4ce5b3f1f?at=master)
+    * If you try to click without `mouse move` active, the cursor goes to a weird location and clicks there
+    * While using the `mouse move`, if you make a right click or open a dialog like a right click will open; all the functionality gets broken and mouse stops until that dialog closes. This point you need to close this dialog with your regular mouse or track pad. 
 * Commit [f7e67b4](https://bitbucket.org/egeaydin/mousy/commits/f7e67b401c98a201a70e55511c4cbc2807c6c992)
     * The movement of mouse cursor is not that great
     * ~~You have to `Cmd + Q` to close the MacApp in order to get back the control of the mouse :joy:~~
