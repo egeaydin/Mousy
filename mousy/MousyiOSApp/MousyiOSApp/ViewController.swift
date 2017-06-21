@@ -36,9 +36,31 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
                 let rr = dMotion.rotationRate
                 let acc = dMotion.userAcceleration
                 
-                let rotModel = XYZ(x: rr.x, y: rr.y, z: rr.z)
+                //let rotModel = XYZ(x: rr.x, y: rr.y, z: rr.z)
+                //let accModel = XYZ(x: acc.x, y: acc.y, z: acc.z)
                 
-                self.peripheral.writeValue(rotModel.toData(), for: self.charecteristic, type: CBCharacteristicWriteType.withoutResponse)
+                var x = rr.x
+                var y = rr.y
+                var z = rr.z
+                
+                let minAcc = 0.2
+                
+                if(acc.x > minAcc)
+                {
+                    x += acc.x
+                }
+                if(acc.y > minAcc)
+                {
+                    y += acc.y
+                }
+                if(acc.z > minAcc)
+                {
+                    z += acc.z
+                }
+                
+                let package = XYZ(x: rr.x + acc.x, y: rr.y + acc.y, z: rr.z + acc.z)
+                
+                self.peripheral.writeValue(package.toData(), for: self.charecteristic, type: CBCharacteristicWriteType.withoutResponse)
                 
             }
         })

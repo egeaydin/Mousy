@@ -16,10 +16,13 @@ This project is all about creating an air representer app which will allow users
 * First pick `MousyMacApp` and run it using play button
 * Second pick `MousyiOSApp` and run it using play button
 
-If all goes well, your iPhone screen should be saying **App Found** on the screen. If that's the case press the button that says start and watch the console on the Xcode. Make sure you are seeing the mac app console by the following:  
-* Notice the app label in the debug area  
+If all goes well, your iPhone screen should be saying **App Found** on the screen. If that's the case press the button that says start and:
+
+* Rotate your phone to see the behavior of the mouse cursor  
+* Watch the console on the Xcode. Make sure you are seeing the mac app console by the following:  
+	* Notice the app label in the debug area  
 ![Screen Shot 2017-06-17 at 8.51.04 PM.png](https://bitbucket.org/repo/9p8MEoj/images/1641456974-Screen%20Shot%202017-06-17%20at%208.51.04%20PM.png)  
-* If it's saying `MousyMacApp` you are on the mac app console. Otherwise change it by clicking on it.  
+	* If it's saying `MousyMacApp` you are on the mac app console. Otherwise change it by clicking on it.  
 ![Screen Shot 2017-06-17 at 8.51.16 PM.png](https://bitbucket.org/repo/9p8MEoj/images/2053584983-Screen%20Shot%202017-06-17%20at%208.51.16%20PM.png)
 
 ## Version History  
@@ -46,8 +49,10 @@ If all goes well, your iPhone screen should be saying **App Found** on the scree
 ## Known problems
 * Commit [f7e67b4](https://bitbucket.org/egeaydin/mousy/commits/f7e67b401c98a201a70e55511c4cbc2807c6c992)
     * The movement of mouse cursor is not that great
+    * You have to `Cmd + Q` to close the MacApp in order to get back the control of the mouse :joy:
 * Commit: [c9f2141](https://bitbucket.org/egeaydin/mousy/commits/c9f214105e3813b0d8e998d2d57a02bb319ae170?at=master), [38b60e0](https://bitbucket.org/egeaydin/mousy/commits/38b60e00d680682f25e85b6bb026d279ff52c15a?at=master),
  [140bab5](https://bitbucket.org/egeaydin/mousy/commits/140bab597cb07b32b54b05e22b62677a9059d396?at=master):
     * Sometimes the iOS app cannot see the mac app, or problems when connecting might be encountered. If that happens please stop the both apps and run the mac app first, then run the iOS app. Which hopefully will fix the connection problem. :relieved:
+
 ## Eager to help?
 Even small advices and suggestions are appreciated. Currently everything seems to be going smoothly.

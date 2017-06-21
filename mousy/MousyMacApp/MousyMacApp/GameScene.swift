@@ -16,11 +16,18 @@ class GameScene: SKScene, CBPeripheralManagerDelegate
 {
     var peripheralManager: CBPeripheralManager!
     var characteristics: CBCharacteristic!
-    
     var pointer: SKSpriteNode!
+    
+    let screenWidth: CGFloat
+    let screenHeight: CGFloat
     
     required init?(coder: NSCoder)
     {
+        let scrn: NSScreen = NSScreen.main()!
+        let rect: NSRect = scrn.frame
+        screenHeight =  rect.size.height
+        screenWidth = rect.size.width
+        
         super.init(coder: coder)
         
         self.peripheralManager = CBPeripheralManager(delegate: self, queue: nil)
@@ -34,6 +41,8 @@ class GameScene: SKScene, CBPeripheralManagerDelegate
         advDict[CBAdvertisementDataLocalNameKey] = "mousyMacApp"
         
         peripheralManager.startAdvertising(advDict)
+        
+        
     }
     
     override func didMove(to view: SKView) {
@@ -75,15 +84,33 @@ class GameScene: SKScene, CBPeripheralManagerDelegate
             let acc = try XYZ.fromData(data: requests.first!.value!)
             print(acc)
             // pointer.physicsBody!.applyForce(CGVector(dx: 100 * CGFloat(-acc.z), dy: 100 * CGFloat(acc.x)))
-            let w = 0.1
+            let w = 0.5
             if acc.z < w || acc.z > w
             {
                 pointer.position.x += 15 * CGFloat(-acc.z)
+                
+                if pointer.position.x > screenWidth
+                {
+                    pointer.position.x = screenWidth
+                }
+                else if(pointer.position.x < 0)
+                {
+                    pointer.position.x = 0
+                }
             }
             
             if acc.x < w || acc.x > w
             {
                 pointer.position.y += 15 * CGFloat(-acc.x)
+                
+                if pointer.position.y > screenHeight
+                {
+                    pointer.position.y = screenHeight
+                }
+                else if(pointer.position.y < 0)
+                {
+                    pointer.position.y = 0
+                }
             }
             
             CGWarpMouseCursorPosition(CGPoint(x: pointer.position.x, y: pointer.position.y))
