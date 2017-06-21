@@ -2,7 +2,7 @@
 *Turn your phone to a magic wand*
 
 ## Brief Summary
-This project is all about creating an air representer app which will allow users to move the mouse on the screen using their iPhones. Ideally they will also be able to use arrow keys, space keys and other keys that iPhones have. By this way, users are going to have a lot of control on their PC or Mac's. Instead of moving their phones like in the initial plan, they are going to rotate their phones which is going to move the mouse. 
+This project is all about creating an air representer app which will allow users to move the mouse on the screen using their iPhones. Ideally they will also be able to use arrow keys, space keys and other keys that iPhones have. By this way, users are going to have a lot of control on their Windows or Mac machine. Instead of moving their phones like in the initial plan, they are going to rotate their phones which is going to move the mouse. 
 
 ## How to run?  
 * First make sure bluetooth is turned on both in your Mac and iPhone.
