@@ -4,7 +4,7 @@
 //
 //  Created by Ege Aydin on 6/20/17.
 //
-//
+// UUID's shared by the Mac App and iOS App in order for them to recognize each other
 
 import CoreBluetooth
 
