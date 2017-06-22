@@ -26,6 +26,8 @@ If all goes well, your iPhone screen should be saying **App Found** on the scree
 ![Screen Shot 2017-06-17 at 8.51.16 PM.png](https://bitbucket.org/repo/9p8MEoj/images/2053584983-Screen%20Shot%202017-06-17%20at%208.51.16%20PM.png)
 
 ## Version History  
+* Commit [65ec3c6](https://bitbucket.org/egeaydin/mousy/commits/65ec3c63f87e37d29740e33b2cead76293a98231)
+    * Added a slider to the IOS App that controls the tracking speed of the mouse cursor
 * Commit [18071f1](https://bitbucket.org/egeaydin/mousy/commits/18071f1280fe789d5f509351d4c166b4ce5b3f1f?at=master)
     * Right click is working
 * Commits between: [2021f7c](https://bitbucket.org/egeaydin/mousy/commits/2021f7c8b8057fc0bc4c586d1c064b65e9021dac) - [9490e4d](https://bitbucket.org/egeaydin/mousy/commits/9490e4d813a47587c20c86349f4c6d92d2ca5a4a)
