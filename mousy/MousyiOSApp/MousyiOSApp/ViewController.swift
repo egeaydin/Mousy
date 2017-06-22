@@ -26,6 +26,7 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
     @IBOutlet weak var buttonLeftClick: UIButton!
     @IBOutlet weak var buttonRightClick: UIButton!
     @IBOutlet weak var buttonStartOrStopMouseMove: UIButton!
+    @IBOutlet weak var sliderTrackingSpeed: UISlider!
 
     // MARK:- Storyboard Actions
     
@@ -34,10 +35,11 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
         {
             // Stop sending move info
             self.motionManager.stopDeviceMotionUpdates()
-            buttonStartOrStopMouseMove.titleLabel!.text = "Move Mouse"
+            buttonStartOrStopMouseMove.setTitle("Move Mouse", for: .normal)
         }
         else
         {
+            buttonStartOrStopMouseMove.setTitle("Stop Mouse", for: .normal)
             // Srart sending data
             self.motionManager.startDeviceMotionUpdates(to: OperationQueue.main, withHandler:
                 {
@@ -69,13 +71,12 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
                             z += acc.z
                         }
                         
-                        let xyz = XYZ(x: rr.x + acc.x, y: rr.y + acc.y, z: rr.z + acc.z)
+                        let xyz = XYZ(x: rr.x + acc.x, y: rr.y + acc.y, z: rr.z + acc.z, trackSpeed: Double(self.sliderTrackingSpeed.value))
                         
                         self.send(action: Action.mouseMove, message: "\(xyz)")
                         
                     }
             })
-            buttonStartOrStopMouseMove.titleLabel!.text = "Stop Mouse"
         }
         
     }
@@ -86,7 +87,7 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
     @IBAction func rightClick(_ sender: Any) {
         self.send(action: Action.mouseRightClick)
     }
-
+    
     // MARK:- View Management
     
     required init?(coder: NSCoder)

@@ -15,7 +15,7 @@ extension XYZ
         let w = 0.5
         if self.z < -w || self.z > w
         {
-            pointer.x += 15 * CGFloat(-self.z)
+            pointer.x += CGFloat(self.trackSpeed) * CGFloat(-self.z)
             
             if pointer.x > screenWidth
             {
@@ -29,7 +29,7 @@ extension XYZ
         
         if self.x < -w || self.x > w
         {
-            pointer.y += 15 * CGFloat(-self.x)
+            pointer.y += CGFloat(self.trackSpeed) * CGFloat(-self.x)
             
             if pointer.y > screenHeight
             {

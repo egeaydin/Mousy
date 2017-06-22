@@ -53,13 +53,17 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="App not found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="92j-UB-Uim">
-                                <rect key="frame" x="106" y="371" width="122" height="21"/>
+                                <rect key="frame" x="99" y="408" width="122" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="15" minValue="5" maxValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="jgy-TW-4C9">
+                                <rect key="frame" x="14" y="334" width="292" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
@@ -69,6 +73,7 @@
                         <outlet property="buttonRightClick" destination="KrK-pu-Jcc" id="PZw-0D-Ky4"/>
                         <outlet property="buttonStartOrStopMouseMove" destination="Nu2-G6-vKg" id="PRN-9D-8fD"/>
                         <outlet property="labelAppStatus" destination="92j-UB-Uim" id="B88-90-U1g"/>
+                        <outlet property="sliderTrackingSpeed" destination="jgy-TW-4C9" id="Saz-8g-DrL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
