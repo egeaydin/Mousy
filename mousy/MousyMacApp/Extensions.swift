@@ -12,35 +12,32 @@ extension XYZ
 {
     func getAsMousePoint(pointer: inout CGPoint) -> CGPoint
     {
-        let w = 0.5
-        if self.z < -w || self.z > w
-        {
-            pointer.x += CGFloat(self.trackSpeed) * CGFloat(-self.z)
-            
-            if pointer.x > screenWidth
-            {
-                pointer.x = screenWidth
-            }
-            else if(pointer.x < 0)
-            {
-                pointer.x = 0
-            }
-        }
+        pointer.x = self.checkBounds(newCoordinate: CGFloat(self.z), currentCoordinate: pointer.x, maxBound: screenWidth)
+        pointer.y = self.checkBounds(newCoordinate: CGFloat(self.x), currentCoordinate: pointer.y, maxBound: screenHeight)
+        
+        return pointer
+    }
+    
+    private func checkBounds(newCoordinate: CGFloat, currentCoordinate: CGFloat, maxBound: CGFloat) -> CGFloat
+    {
+        let w = 0.2
+        var rtn = currentCoordinate
         
         if self.x < -w || self.x > w
         {
-            pointer.y += CGFloat(self.trackSpeed) * CGFloat(-self.x)
+            rtn += CGFloat(self.trackSpeed) * CGFloat(-newCoordinate)
             
-            if pointer.y > screenHeight
+            if rtn > maxBound
             {
-                pointer.y = screenHeight
+                rtn = maxBound
             }
-            else if(pointer.y < 0)
+            else if(rtn < 0)
             {
-                pointer.y = 0
+                rtn = 0
             }
         }
         
-        return pointer
+        return rtn
+
     }
 }

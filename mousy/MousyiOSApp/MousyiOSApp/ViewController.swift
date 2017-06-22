@@ -41,51 +41,17 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
         {
             buttonStartOrStopMouseMove.setTitle("Stop Mouse", for: .normal)
             // Srart sending data
-            self.motionManager.startDeviceMotionUpdates(to: OperationQueue.main, withHandler:
-                {
-                    deviceMotion, error in
-                    if let dMotion = deviceMotion
-                    {
-                        let rr = dMotion.rotationRate
-                        let acc = dMotion.userAcceleration
-                        
-                        //let rotModel = XYZ(x: rr.x, y: rr.y, z: rr.z)
-                        //let accModel = XYZ(x: acc.x, y: acc.y, z: acc.z)
-                        
-                        var x = rr.x
-                        var y = rr.y
-                        var z = rr.z
-                        
-                        let minAcc = 0.2
-                        
-                        if(acc.x > minAcc)
-                        {
-                            x += acc.x
-                        }
-                        if(acc.y > minAcc)
-                        {
-                            y += acc.y
-                        }
-                        if(acc.z > minAcc)
-                        {
-                            z += acc.z
-                        }
-                        
-                        let xyz = XYZ(x: rr.x + acc.x, y: rr.y + acc.y, z: rr.z + acc.z, trackSpeed: Double(self.sliderTrackingSpeed.value))
-                        
-                        self.send(action: Action.mouseMove, message: "\(xyz)")
-                        
-                    }
-            })
+            self.motionManager.startDeviceMotionUpdates(to: OperationQueue.main, withHandler: readAndSendSensorData )
         }
         
     }
     
-    @IBAction func leftClick(_ sender: Any) {
-        self.send(action: Action.mouseLeftClick)
+    @IBAction func leftClick(_ sender: Any)
+    {
+        self.mouseClick(action: Action.mouseLeftClick)
     }
     @IBAction func rightClick(_ sender: Any) {
-        self.send(action: Action.mouseRightClick)
+        self.mouseClick(action: Action.mouseRightClick)
     }
     
     // MARK:- View Management
@@ -97,6 +63,49 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
         self.motionManager = CMMotionManager()
     }
     
+    func mouseClick(action: Action)
+    {
+        self.motionManager.stopDeviceMotionUpdates()
+        self.send(action: action)
+        self.motionManager.startDeviceMotionUpdates(to: OperationQueue.main, withHandler: readAndSendSensorData  )
+    }
+    
+    func readAndSendSensorData(motion: CMDeviceMotion?, error: Error?)
+    {
+        if let dMotion = motion
+        {
+            let rr = dMotion.rotationRate
+            let acc = dMotion.userAcceleration
+            
+            //let rotModel = XYZ(x: rr.x, y: rr.y, z: rr.z)
+            //let accModel = XYZ(x: acc.x, y: acc.y, z: acc.z)
+            
+            var x = rr.x
+            var y = rr.y
+            var z = rr.z
+            
+            let minAcc = 0.2
+            
+            if(acc.x > minAcc)
+            {
+                x += acc.x
+            }
+            if(acc.y > minAcc)
+            {
+                y += acc.y
+            }
+            if(acc.z > minAcc)
+            {
+                z += acc.z
+            }
+            
+            let xyz = XYZ(x: rr.x + acc.x, y: rr.y + acc.y, z: rr.z + acc.z, trackSpeed: Double(self.sliderTrackingSpeed.value))
+            
+            self.send(action: Action.mouseMove, message: "\(xyz)")
+            
+        }
+        
+    }
     
     // MARK:- Bluethooth Management
     

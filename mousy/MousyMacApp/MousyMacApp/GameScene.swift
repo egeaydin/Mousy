@@ -83,8 +83,6 @@ class GameScene: SKScene, CBPeripheralManagerDelegate
                     try Mouse.operate(package: package, point: &pointer.position)
                 }
             }
-            
-            
         }
         catch
         {
