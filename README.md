@@ -10,9 +10,9 @@ This project is all about creating an air representer app which will allow users
 * Download the source code 
 * Go the `mousy` folder and run the `MousY.xcworkspce`, *there are other `.xproj` files, don't run them.*.  
 * Notice the app label next to the stop button!   
-![Screen Shot 2017-06-17 at 8.44.42 PM.png](https://bitbucket.org/repo/9p8MEoj/images/4238907715-Screen%20Shot%202017-06-17%20at%208.44.42%20PM.png) or ![Screen Shot 2017-06-17 at 8.45.28 PM.png](https://bitbucket.org/repo/9p8MEoj/images/2718577939-Screen%20Shot%202017-06-17%20at%208.45.28%20PM.png)  
+![alt text][ss_app_label_1] or ![alt text][ss_app_label_2] 
 * If you click the app label you will notice you can go between apps  
-![Screen Shot 2017-06-17 at 8.43.47 PM.png](https://bitbucket.org/repo/9p8MEoj/images/1143943264-Screen%20Shot%202017-06-17%20at%208.43.47%20PM.png)
+![alt text][ss_between_apps]
 * First pick `MousyMacApp` and run it using play button
 * Second pick `MousyiOSApp` and run it using play button
 
@@ -21,9 +21,9 @@ If all goes well, your iPhone screen should be saying **App Found** on the scree
 * Press `Move Mouse` button and rotate your phone to see the behavior of the mouse cursor, press again to stop. While doing so try to left click somewhere.
 * Watch the console on the Xcode. Make sure you are seeing the mac app console by the following:  
 	* Notice the app label in the debug area  
-![Screen Shot 2017-06-17 at 8.51.04 PM.png](https://bitbucket.org/repo/9p8MEoj/images/1641456974-Screen%20Shot%202017-06-17%20at%208.51.04%20PM.png)  
+![alt text][ss_debug_area]
 	* If it's saying `MousyMacApp` you are on the mac app console. Otherwise change it by clicking on it.  
-![Screen Shot 2017-06-17 at 8.51.16 PM.png](https://bitbucket.org/repo/9p8MEoj/images/2053584983-Screen%20Shot%202017-06-17%20at%208.51.16%20PM.png)
+![alt text][ss_switch_apps]
 
 ## Version History  
 * Commit [65ec3c6](https://bitbucket.org/egeaydin/mousy/commits/65ec3c63f87e37d29740e33b2cead76293a98231)
@@ -66,3 +66,9 @@ If all goes well, your iPhone screen should be saying **App Found** on the scree
 
 ## Eager to help?
 Even small advices and suggestions are appreciated. Currently everything seems to be going smoothly.
+
+[ss_app_label_1]: github/ss_app_label_1.png "app label 1"
+[ss_app_label_2]: github/ss_app_label_2.png "app label 2"
+[ss_between_apps]: github/ss_between_apps.png "between apps"
+[ss_debug_area]: github/ss_debug_area.png "debug area"
+[ss_switch_apps]: github/ss_switch_apps.png "switch apps"
